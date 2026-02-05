@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # Import database components
 from app.core.database import engine, Base
+from app.core.config import settings
 from app.api import links, analytics, tracking
 
 # Try to create database tables (only if connection is available)
@@ -32,7 +33,7 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
