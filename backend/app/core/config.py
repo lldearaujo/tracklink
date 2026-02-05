@@ -2,7 +2,7 @@
 Application configuration
 """
 from pydantic_settings import BaseSettings
-from typing import Optional
+from typing import Optional, List, Union
 
 
 class Settings(BaseSettings):
@@ -21,14 +21,21 @@ class Settings(BaseSettings):
     # Security
     SECRET_KEY: str = "your-secret-key-change-in-production"
     
-    # CORS
-    CORS_ORIGINS: list = [
+    # CORS - pode ser lista ou string separada por vírgulas
+    CORS_ORIGINS: Union[List[str], str] = [
         "http://localhost:3000",
         "http://localhost:3001",
         "https://tracklink.ideiasobria.online",
         "https://docs.tracklink.ideiasobria.online",
         "https://dashboard.tracklink.ideiasobria.online",
     ]
+    
+    @property
+    def cors_origins_list(self) -> List[str]:
+        """Retorna CORS_ORIGINS como lista, convertendo string se necessário"""
+        if isinstance(self.CORS_ORIGINS, str):
+            return [origin.strip() for origin in self.CORS_ORIGINS.split(",")]
+        return self.CORS_ORIGINS
     
     # GeoIP (optional - for location tracking)
     GEOIP_ENABLED: bool = False
