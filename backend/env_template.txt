@@ -1,0 +1,13 @@
+# Copie este arquivo para .env e ajuste se necessário
+# Database Configuration - PostgreSQL
+DATABASE_URL=postgresql://tracking:S3v3r1n0_01@72.60.63.29:32541/bd_tracking?sslmode=disable
+
+# API Configuration
+SECRET_KEY=link-tracking-system-secret-key-2024
+
+# CORS Origins
+CORS_ORIGINS=http://localhost:3000,http://localhost:3001
+
+# GeoIP Configuration (optional)
+GEOIP_ENABLED=false
+GEOIP_DB_PATH=
