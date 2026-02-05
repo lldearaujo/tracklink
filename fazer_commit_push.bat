@@ -70,7 +70,9 @@ if errorlevel 1 (
 
 echo.
 echo Arquivos que serao commitados:
-git status --short | head -20
+git status --short
+echo.
+echo ^(Mostrando todos os arquivos modificados/adicionados^)
 echo.
 
 choice /C SN /M "Deseja continuar com o commit"
