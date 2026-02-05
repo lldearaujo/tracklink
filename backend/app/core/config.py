@@ -22,7 +22,13 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "your-secret-key-change-in-production"
     
     # CORS
-    CORS_ORIGINS: list = ["http://localhost:3000", "http://localhost:3001"]
+    CORS_ORIGINS: list = [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "https://tracklink.ideiasobria.online",
+        "https://docs.tracklink.ideiasobria.online",
+        "https://dashboard.tracklink.ideiasobria.online",
+    ]
     
     # GeoIP (optional - for location tracking)
     GEOIP_ENABLED: bool = False
